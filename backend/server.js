@@ -13,6 +13,16 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, "0.0.0.0" ,() => {
     console.log(`Server is running on port ${PORT}`);});
+  app.on("error", (err) => {
+    console.error("Server error:", err);
+    if(err.code=== "EADDRINUSE"){
+        console.error(`Port ${PORT} is already in use.Rtrying another port.`);
+        setTimeout(() => {
+          Server.close();
+          Server.listen(0);
+        }, 1000);
+    }
+  });
 
 // ── Middleware 
 const allowedOrigins = [
