@@ -11,7 +11,7 @@ const userSellListRoutes = require("./routes/user"); // The actual sell list
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, ()=>{
+app.listen(PORT, "0.0.0.0" ,() => {
     console.log(`Server is running on port ${PORT}`);});
 
 // ── Middleware 
@@ -77,7 +77,7 @@ const startServer = async () => {
         console.log('⚠️ Server starting in degraded mode. Database features will fail.');
     }
 
-    app.listen(PORT, "0.0.0.0", () => {
+    app.listen(PORT, "0.0.0.0" , () => {
         console.log(`🚀 Server running on port ${PORT}`);
         console.log(`🏥 Health Check: /api/health`);
     });
