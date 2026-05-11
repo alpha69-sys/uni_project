@@ -11,6 +11,8 @@ const userSellListRoutes = require("./routes/user"); // The actual sell list
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, ()=>{
+    console.log(`Server is running on port ${PORT}`);});
 
 // ── Middleware 
 const allowedOrigins = [
